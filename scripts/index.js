@@ -1,3 +1,6 @@
+import { setEventListeners, currentForm } from "../scripts/validate.js";
+import { closePopup } from "../scripts/closeModal.js";
+
 let initialCards=[{
     name:'Valle de Yosemite',
     link:'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg'
@@ -19,19 +22,24 @@ let initialCards=[{
 }];
 
 
+
+
 // Elementos extraidos del DOM
-let openEditorButton= document.querySelector('.profile__edit-button');
+let profileEditorButton= document.querySelector('.profile__edit-button');
 let formElement= document.getElementById('edit-popup');
 let closeEditorButton =formElement.querySelector('.popup__close');
 let profileTitle = document.querySelector('.profile__title');
 let profileDescription = document.querySelector('.profile__description');
-let nameInput = document.querySelector('.popup__input_type_name');
-let descriptionInput = document.querySelector('.popup__input_type_description');
+let nameInput = document.querySelector(".popup__input_type_name");
+let descriptionInput = document.querySelector(".popup__input_type_description");
+
+
 const cardsTemplate = document.querySelector('#cards__template').content.querySelector('.card');
 const submitNewCardButton = document.querySelector('.profile__add-button')
 const submitNewCardForm = document.querySelector('#new-card-popup')
 const closeNewCardFormButton = submitNewCardForm.querySelector('.popup__close');
 const imagePopupContainer = document.querySelector('#image-popup');
+
 
 
 //funciones de abrir o cerrar la pagina
@@ -64,8 +72,10 @@ let handleProfileFormSubmit =(evt)=>{
 
 
 //Acciones de los botones para editar informacion de perfil
-openEditorButton.addEventListener('click', ()=>{
+profileEditorButton.addEventListener('click', ()=>{
     handleOpenEditModal();
+    setEventListeners();
+    closePopup(currentForm, closeModal);
     
 })
 closeEditorButton.addEventListener('click', ()=>{
@@ -78,6 +88,8 @@ formElement.addEventListener('submit', handleProfileFormSubmit)
 // acciones del formulario para crear una nueva tarjeta
 submitNewCardButton.addEventListener('click', ()=>{
     openModal(submitNewCardForm);
+    setEventListeners();
+    closePopup(currentForm, closeModal);
 })
 closeNewCardFormButton.addEventListener('click', ()=>{
     closeModal(submitNewCardForm)
@@ -157,3 +169,4 @@ initialCards.forEach((card)=>{
 })
 
 //funcion para obtener la informacion de la nueva tarjeta
+

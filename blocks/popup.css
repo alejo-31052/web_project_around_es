@@ -31,6 +31,13 @@
   cursor: pointer;
 }
 
+.popup__button:disabled{
+  background-color: white;
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
 .popup__close {
   width: 35px;
   height: 35px;
@@ -74,6 +81,9 @@
   box-sizing: border-box;
   padding: 10px 0 0;
   margin-bottom: 10px;
+}
+.popup__input:invalid{
+border-bottom: 1px solid rgba(255, 0, 0, 1);
 }
 
 .popup__input:last-of-type {
@@ -156,4 +166,11 @@
     max-width: 75vw;
     padding: 0;
   }
+}
+
+
+.input_error{
+  color: rgba(255, 0, 0, 1);
+  font-size: 12px;
+  font-family: "Inter", Arial, sans-serif
 }
