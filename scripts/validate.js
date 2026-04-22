@@ -24,7 +24,7 @@ submitNewCardButton.addEventListener('click', ()=>{
         let inputsArray = Array.from(formInputs);
 
     inputsArray.forEach((x) => {
-        let formErrorMessage = currentForm.querySelector(`.input-type-${x.name}__error`); 
+        let formErrorMessage = currentForm.querySelector(`.popup__error_type_${x.name}`); 
         const submitButton = x.parentElement.querySelector('.popup__button')
 
         x.addEventListener("input", (event) => {
